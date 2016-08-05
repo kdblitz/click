@@ -10,6 +10,7 @@ module.component('dashboard', {
 	templateUrl: 'dashboard.html',
 	controller: function ($timeout, $http) {
 		this.data = [];
+		this.currentStates = {};
 
 		getData.call(this);
 
@@ -25,7 +26,13 @@ module.component('dashboard', {
 		}
 
 		function readEvent(event) {
-			this.data.push(event);
+			if (event.value === "1" && !this.currentStates[event.name]) {
+				this.currentStates[event.name] = {description:event.name, startTime:new Date()};
+				this.data.push(this.currentStates[event.name]);
+			} else if (event.value === "0" && this.currentStates[event.name]) {
+				this.currentStates[event.name].endTime = new Date();
+				delete this.currentStates[event.name];
+			}
 		}
 	}
 });

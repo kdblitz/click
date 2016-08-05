@@ -1,4 +1,5 @@
-[{
-  "description": "abc",
-  "time": "10:00am"
-}]
+[
+  {"name":"prod1", "value":"0"},
+  {"name":"prod2", "value":"0"},
+  {"name":"prod3", "value":"1"}
+]

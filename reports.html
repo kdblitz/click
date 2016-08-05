@@ -5,13 +5,16 @@
             <thead>
             <tr>
                 <th>Description</th>
-                <th>Time</th>
+                <th>Start Time</th>
+                <th>End Time</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="d in $ctrl.data">
                 <td>{{d.description}}</td>
-                <td>{{d.time}}</td>
+                <td>{{d.startTime | date:'medium'}}</td>
+                <td>{{d.endTime | date:'medium'}}</td>
+                <td></td>
             </tr>
             </tbody>
         </table>

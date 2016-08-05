@@ -42,10 +42,16 @@ module.component('clusterData', {
 		'data': '<'
 	},
 	templateUrl: 'clusterData.html',
-	controller: function () {
-		var data = this.data;
-		// this.cluster = function () {
-		// 	// this.clusteredData =
-		// }
+	controller: function ($scope) {
+		var vm = this;
+		$scope.$watchCollection(function () {
+			return vm.data;
+		}, cluster)
+
+		function cluster (newData) {
+			vm.clusteredData = _.groupBy(newData, function (item) {
+				return item.description;
+			});
+		}
 	}
 });

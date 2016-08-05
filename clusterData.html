@@ -9,9 +9,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="d in $ctrl.data">
-                <td>{{d.description}}</td>
-                <td>{{d.time}}</td>
+            <tr ng-repeat="(description, cluster) in $ctrl.clusteredData">
+                <td>{{description}}</td>
+                <td>{{cluster.length}}</td>
             </tr>
             </tbody>
         </table>

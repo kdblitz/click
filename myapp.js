@@ -20,7 +20,7 @@ module.component('dashboard', {
 				function (response) {
 					var events = response.data;
 					events.forEach(readEvent.bind(that));
-					$timeout(getData.bind(that), 5000);
+					$timeout(getData.bind(that), 1000);
 				}
 			);
 		}

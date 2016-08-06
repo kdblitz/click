@@ -1,0 +1,23 @@
+{
+  "name": "click",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdblitz/click.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kdblitz/click/issues"
+  },
+  "homepage": "https://github.com/kdblitz/click#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

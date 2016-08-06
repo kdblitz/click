@@ -3,11 +3,11 @@
 var module = angular.module('nokiaclick', []);
 
 module.component('nokiaClickNav', {
-	templateUrl: 'navbar.html'
+	templateUrl: 'templates/navbar.html'
 });
 
 module.component('dashboard', {
-	templateUrl: 'dashboard.html',
+	templateUrl: 'templates/dashboard.html',
 	controller: function ($timeout, $http) {
 		this.data = [];
 		this.currentStates = {};
@@ -41,14 +41,14 @@ module.component('reports', {
 	bindings: {
 		'data': '<'
 	},
-	templateUrl: 'reports.html'
+	templateUrl: 'templates/reports.html'
 });
 
 module.component('clusterData', {
 	bindings: {
 		'data': '<'
 	},
-	templateUrl: 'clusterData.html',
+	templateUrl: 'templates/clusterData.html',
 	controller: function ($scope) {
 		var vm = this;
 		$scope.$watchCollection(function () {

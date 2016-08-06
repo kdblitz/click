@@ -30,9 +30,11 @@ module.component('dashboard', {
 
 		function getData () {
 			var that = this;
-			$http.get('/data.json').then(
+			$http.get('http://192.168.1.178/').then(
 				function (response) {
-					var events = response.data;
+					console.log(response);
+					var events = response.data['Nokia Manila'];
+					console.log(events);
 					events.forEach(readEvent.bind(that));
 					$timeout(getData.bind(that), 1000);
 				}

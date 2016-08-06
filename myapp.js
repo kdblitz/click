@@ -1,6 +1,20 @@
 'use strict';
 
-var module = angular.module('nokiaclick', []);
+var module = angular.module('nokiaclick', ['ui.router']);
+
+module.config(function ($urlRouterProvider, $stateProvider) {
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+    .state('dashboard', {
+      url: '/',
+      template: '<dashboard></dashboard>'
+    })
+		.state('analytics', {
+      url: '/analytics',
+      template: 'analytics go here'
+    });
+});
 
 module.component('nokiaClickNav', {
 	templateUrl: 'templates/navbar.html'

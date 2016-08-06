@@ -28,7 +28,7 @@ module.component('dashboard', {
 		function readEvent(event) {
 			if (event.value === "1" && !this.currentStates[event.name]) {
 				this.currentStates[event.name] = {description:event.name, startTime:new Date()};
-				this.data.push(this.currentStates[event.name]);
+				this.data.unshift(this.currentStates[event.name]);
 			} else if (event.value === "0" && this.currentStates[event.name]) {
 				this.currentStates[event.name].endTime = new Date();
 				delete this.currentStates[event.name];
@@ -37,11 +37,11 @@ module.component('dashboard', {
 	}
 });
 
-module.component('reports', {
+module.component('eventLogs', {
 	bindings: {
 		'data': '<'
 	},
-	templateUrl: 'templates/reports.html'
+	templateUrl: 'templates/eventLogs.html'
 });
 
 module.component('clusterData', {
@@ -56,8 +56,16 @@ module.component('clusterData', {
 		}, cluster)
 
 		function cluster (newData) {
-			vm.clusteredData = _.groupBy(newData, function (item) {
+			var clusteredData = _.groupBy(newData, function (item) {
 				return item.description;
+			});
+			vm.clusteredData = _.map(clusteredData, function (cluster, key) {
+				console.log(arguments);
+				var analysis = {};
+				analysis.description = key;
+				analysis.length = cluster.length;
+				analysis.responseTime = _.random(1, 60) + ' mins';
+				return analysis;
 			});
 		}
 	}

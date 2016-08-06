@@ -6,12 +6,14 @@
             <tr>
                 <th>Description</th>
                 <th>Frequency</th>
+                <th>Response Time</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="(description, cluster) in $ctrl.clusteredData">
-                <td>{{description}}</td>
+            <tr ng-repeat="cluster in $ctrl.clusteredData">
+                <td>{{cluster.description}}</td>
                 <td>{{cluster.length}}</td>
+                <td>{{cluster.responseTime}}</td>
             </tr>
             </tbody>
         </table>

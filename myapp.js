@@ -10,10 +10,14 @@ module.config(function ($urlRouterProvider, $stateProvider) {
       url: '/',
       template: '<dashboard data="$ctrl.data"></dashboard>'
     })
-		.state('analytics', {
+		.state('signalAnalytics', {
       url: '/analytics',
       template: '<analytics data="$ctrl.data"></analytics>'
-    });
+    })
+		.state('macroAnalytics', {
+			url: '/macroAnalytics',
+			template: '<macro-analytics data="$ctrl.data"></macro-analytics>'
+		});
 });
 
 module.component('nokiaClickNav', {
@@ -110,4 +114,11 @@ module.component('interval', {
 		'data': '<'
 	},
 	templateUrl: 'templates/interval.html'
+});
+
+module.component('macroAnalytics', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/macroAnalytics.html'
 });

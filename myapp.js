@@ -122,3 +122,17 @@ module.component('macroAnalytics', {
 	},
 	templateUrl: 'templates/macroAnalytics.html'
 });
+
+module.component('macroStatistics', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/macroStatistics.html'
+});
+
+module.component('signalComparison', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/signalComparison.html'
+});

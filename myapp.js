@@ -58,13 +58,6 @@ module.component('dashboard', {
 	templateUrl: 'templates/dashboard.html'
 });
 
-module.component('analytics', {
-  bindings: {
-    'data': '<'
-  },
-  templateUrl: 'templates/analytics.html'
-})
-
 module.component('eventLogs', {
 	bindings: {
 		'data': '<'
@@ -96,4 +89,25 @@ module.component('clusterData', {
 			});
 		}
 	}
+});
+
+module.component('analytics', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/analytics.html'
+});
+
+module.component('statistics', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/statistics.html'
+});
+
+module.component('interval', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/interval.html'
 });

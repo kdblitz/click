@@ -8,11 +8,11 @@ module.config(function ($urlRouterProvider, $stateProvider) {
   $stateProvider
     .state('dashboard', {
       url: '/',
-      template: '<dashboard></dashboard>'
+      template: '<dashboard data="$ctrl.data"></dashboard>'
     })
 		.state('analytics', {
       url: '/analytics',
-      template: '<analytics></analytics>'
+      template: '<analytics data="$ctrl.data"></analytics>'
     });
 });
 
@@ -20,8 +20,8 @@ module.component('nokiaClickNav', {
 	templateUrl: 'templates/navbar.html'
 });
 
-module.component('dashboard', {
-	templateUrl: 'templates/dashboard.html',
+module.component('nokiaClick', {
+	templateUrl: 'templates/nokiaClick.html',
 	controller: function ($timeout, $http) {
 		this.data = [];
 		this.currentStates = {};
@@ -30,11 +30,9 @@ module.component('dashboard', {
 
 		function getData () {
 			var that = this;
-			$http.get('http://192.168.1.178/').then(
+			$http.get('/data.json').then(
 				function (response) {
-					console.log(response);
 					var events = response.data['Nokia Manila'];
-					console.log(events);
 					events.forEach(readEvent.bind(that));
 					$timeout(getData.bind(that), 1000);
 				}
@@ -53,10 +51,17 @@ module.component('dashboard', {
 	}
 });
 
+module.component('dashboard', {
+	bindings: {
+		'data': '<'
+	},
+	templateUrl: 'templates/dashboard.html'
+});
+
 module.component('analytics', {
-  // bindings: {
-  //   'data': '<'
-  // },
+  bindings: {
+    'data': '<'
+  },
   templateUrl: 'templates/analytics.html'
 })
 
@@ -83,7 +88,6 @@ module.component('clusterData', {
 				return item.description;
 			});
 			vm.clusteredData = _.map(clusteredData, function (cluster, key) {
-				console.log(arguments);
 				var analysis = {};
 				analysis.description = key;
 				analysis.length = cluster.length;

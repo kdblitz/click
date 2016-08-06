@@ -12,7 +12,7 @@ module.config(function ($urlRouterProvider, $stateProvider) {
     })
 		.state('analytics', {
       url: '/analytics',
-      template: 'analytics go here'
+      template: '<analytics></analytics>'
     });
 });
 
@@ -50,6 +50,13 @@ module.component('dashboard', {
 		}
 	}
 });
+
+module.component('analytics', {
+  // bindings: {
+  //   'data': '<'
+  // },
+  templateUrl: 'templates/analytics.html'
+})
 
 module.component('eventLogs', {
 	bindings: {
